@@ -18,11 +18,15 @@ abstract class Telephone {
     abstract void Dialing();
     abstract void Connecting();
     abstract void Ending();
+    abstract void Info();
+    abstract void mainMenu();
 
     public final void Call(){
         Dialing();
         Connecting();
         Ending();
+        mainMenu();
+
     }
 }
 
