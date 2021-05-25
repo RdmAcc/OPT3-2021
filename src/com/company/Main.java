@@ -34,9 +34,9 @@ public class Main {
             System.out.println("You can't use this device");
             return 0;
         }
-        else if(age<12 && age>6){
+        else if(age<12 && age>=7){
             System.out.println("You can use this device for 60 minutes");
-                return 60;
+            return 60;
         }else{
             System.out.println("You can use this device for 240 minutes");
             return 240;}
