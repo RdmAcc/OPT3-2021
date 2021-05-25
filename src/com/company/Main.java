@@ -6,7 +6,11 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        checkAge();
+        System.out.println("Type in your age");
+        Scanner sc = new Scanner(System.in);
+        int age = sc.nextInt();
+        if(checkAge(age)>0)
+            startUp();
     }
     public static void startUp(){
         TelephoneFactory telephoneFactory = new TelephoneFactory();
@@ -24,22 +28,17 @@ public class Main {
         else
             return;
     }
-    public static void checkAge(){
-        System.out.println("Type in your age");
+    public static int checkAge(int age){
         Scanner sc = new Scanner(System.in);
-        int age = sc.nextInt();
         if(age<7){
-            System.out.println("You are too young to use this device");
+            System.out.println("You can't use this device");
+            return 0;
         }
         else if(age<12 && age>6){
-            System.out.println("Do you have permission from your parents \n 1. yes \n 2. no");
-            int perm = sc.nextInt();
-            if(perm==2) {
-                System.out.println("You cant use this device");
-            }else
-                startUp();
-
-        }else
-            startUp();
+            System.out.println("You can use this device for 60 minutes");
+                return 60;
+        }else{
+            System.out.println("You can use this device for 240 minutes");
+            return 240;}
     }
 }
