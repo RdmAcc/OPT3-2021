@@ -56,6 +56,7 @@ class Smartphone extends Telephone {
         System.out.println();
         System.out.println("press enter to go back");
         String a = sc.nextLine();
+        mainMenu();
     }
     @Override
     void Info(){
@@ -82,7 +83,7 @@ class Smartphone extends Telephone {
         else if(choice==2)
             Info();
         else
-            Main.startUp();
+            startUp();
 
     }
 }
