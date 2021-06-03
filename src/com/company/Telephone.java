@@ -7,14 +7,13 @@ abstract class Telephone {
     private String model;
     public String number;
 
-    public Telephone(String brand, String model) {
+    public Telephone(String brand, String model, String number) {
         this.brand = brand;
         this.model = model;
+        this.number = number;
     }
 
-    void getBrand() {
-        System.out.println(brand);
-    }
+    void getBrand() { System.out.println(brand); }
     void getModel() { System.out.println(model); }
 
     abstract void Dialing();
@@ -29,11 +28,10 @@ abstract class Telephone {
         Ending();
     }
     public static void startUp(){
-        TelephoneFactory telephoneFactory = new TelephoneFactory();
         Scanner sc = new Scanner(System.in);
 
-        Telephone smartphone = telephoneFactory.getTelephone("smartphone");
-        Telephone desktopTelephone = telephoneFactory.getTelephone("desktoptelephone");
+        Telephone smartphone = TelephoneFactory.SMARTPHONE_FACTORY.createTelephone();
+        Telephone desktopTelephone = TelephoneFactory.DESKTOP_TELEPHONE_FACTORY.createTelephone();
 
         System.out.println("Choose what device you want to use: \n 1. Desktoptelephone \n 2. Smartphone \n 3. Exit");
         int choice = sc.nextInt();
@@ -55,6 +53,26 @@ abstract class Telephone {
         }else{
             System.out.println("You can use this device for 240 minutes");
             return 240;}
+    }
+    public boolean isNumberCorrect(String n){
+        boolean isNumeric = true;
+        int length = String.valueOf(n).length();
+        try {
+            Double d = Double.parseDouble(n);
+        } catch (NumberFormatException ex) {
+            isNumeric = false;
+        }
+        if (!isNumeric) {
+            System.out.println("Invalid number : The number can only contain numbers");
+            return false;
+        }else if (length <= 9) {
+            System.out.println("Invalid number : The number is too short");
+            return false;
+        }else if (!n.trim().startsWith("06")) {
+            System.out.println("Invalid number : The number need to start with '06' ");
+            return false;
+        }
+        return true;
     }
 }
 

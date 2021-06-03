@@ -6,7 +6,7 @@ class Smartphone extends Telephone {
     private String software;
 
     public Smartphone(String brand, String model, String software) {
-        super(brand, model);
+        super(brand, model, software);
         this.software = software;
     }
 
@@ -14,29 +14,9 @@ class Smartphone extends Telephone {
         System.out.println(software);
     }
 
-    public boolean isNumberCorrect(String n){
-        boolean isNumeric = true;
-        int length = String.valueOf(n).length();
-        try {
-            Double d = Double.parseDouble(n);
-        } catch (NumberFormatException ex) {
-            isNumeric = false;
-        }
-        if (!isNumeric) {
-            System.out.println("Invalid number : The number can only contain numbers");
-            return false;
-        }else if (length < 9) {
-            System.out.println("Invalid number : The number is too short");
-            return false;
-        }else if (!n.trim().startsWith("06")) {
-            System.out.println("Invalid number : The number need to start with '06' ");
-            return false;
-        }
-        return true;
-    }
     @Override
     void Dialing(){
-        System.out.println("Type in the phone number you want to call :");
+        System.out.println("Type in the phone number you want the smartphone to call :");
         Scanner sc = new Scanner(System.in);
         number = sc.nextLine();
         if(!isNumberCorrect(number))

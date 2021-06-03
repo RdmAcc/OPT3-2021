@@ -7,36 +7,16 @@ class DesktopTelephone extends Telephone {
 
 
     public DesktopTelephone(String brand, String model, String cableLenght) {
-        super(brand, model);
+        super(brand, model, cableLenght);
         this.cableLenght = cableLenght;
     }
 
     void getCableLenght() {
         System.out.println(cableLenght);
     }
-    public boolean isNumberCorrect(String n){
-        boolean isNumeric = true;
-        int length = String.valueOf(n).length();
-        try {
-            Double d = Double.parseDouble(n);
-        } catch (NumberFormatException ex) {
-            isNumeric = false;
-        }
-        if (!isNumeric) {
-            System.out.println("Invalid number : The number can only contain numbers");
-            return false;
-        }else if (length <= 9) {
-            System.out.println("Invalid number : The number is too short");
-            return false;
-        }else if (!n.trim().startsWith("06")) {
-            System.out.println("Invalid number : The number need to start with '06' ");
-            return false;
-        }
-        return true;
-    }
     @Override
     void Dialing(){
-        System.out.println("Type in the phone number you want to call :");
+        System.out.println("Type in the phone number you want the desktop telephone to call :");
         Scanner sc = new Scanner(System.in);
         number = sc.nextLine();
         if(!isNumberCorrect(number))
