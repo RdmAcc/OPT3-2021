@@ -1,18 +1,9 @@
 package com.company;
 
-public class TelephoneFactory {
+public abstract class TelephoneFactory {
 
-    public Telephone getTelephone(String telephoneType) {
-        if (telephoneType == null)
-            return null;
+    public static final SmartphoneFactory SMARTPHONE_FACTORY = new SmartphoneFactory();
+    public static final DesktopTelephoneFactory DESKTOP_TELEPHONE_FACTORY = new DesktopTelephoneFactory();
 
-        else if(telephoneType.equalsIgnoreCase("Smartphone"))
-            return new Smartphone("Samsung", "S8", "Android 10");
-
-        else if(telephoneType.equalsIgnoreCase("DesktopTelephone"))
-            return new DesktopTelephone("Sony","X1900","2 meters");
-
-        return null;
-
-    }
+    public abstract Telephone createTelephone();
 }
