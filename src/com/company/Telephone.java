@@ -16,7 +16,13 @@ abstract class Telephone {
     void getBrand() { System.out.println(brand); }
     void getModel() { System.out.println(model); }
 
-    abstract void Dialing();
+    public void Dialing(){
+        System.out.println("Type in the phone number you want the smartphone to call :");
+        Scanner sc = new Scanner(System.in);
+        number = sc.nextLine();
+        if(!isNumberCorrect(number))
+            Dialing();
+    }
     abstract void Connecting();
     abstract void Ending();
     abstract void Info();
