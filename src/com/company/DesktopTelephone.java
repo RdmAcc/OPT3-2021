@@ -5,7 +5,6 @@ import java.util.Scanner;
 class DesktopTelephone extends Telephone {
     private String cableLenght;
 
-
     public DesktopTelephone(String brand, String model, String cableLenght) {
         super(brand, model, cableLenght);
         this.cableLenght = cableLenght;
@@ -14,14 +13,7 @@ class DesktopTelephone extends Telephone {
     void getCableLenght() {
         System.out.println(cableLenght);
     }
-    @Override
-    void Dialing(){
-        System.out.println("Type in the phone number you want the desktop telephone to call :");
-        Scanner sc = new Scanner(System.in);
-        number = sc.nextLine();
-        if(!isNumberCorrect(number))
-            Dialing();
-    }
+
     @Override
     void Connecting(){
         System.out.println("Desktop telephone is dialing : " + number);
@@ -61,6 +53,5 @@ class DesktopTelephone extends Telephone {
             Info();
         else
             startUp();
-
     }
 }

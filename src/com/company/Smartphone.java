@@ -15,15 +15,6 @@ class Smartphone extends Telephone {
     }
 
     @Override
-    void Dialing(){
-        System.out.println("Type in the phone number you want the smartphone to call :");
-        Scanner sc = new Scanner(System.in);
-        number = sc.nextLine();
-        if(!isNumberCorrect(number))
-            Dialing();
-
-    }
-    @Override
     void Connecting(){
         System.out.println("Smartphone is dialing : " + number );
         System.out.println("Smartphone is connecting... \nConnected");
@@ -32,7 +23,6 @@ class Smartphone extends Telephone {
     void Ending(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Smartphone call has ended");
-
         System.out.println();
         System.out.println("press enter to go back");
         String a = sc.nextLine();
@@ -48,7 +38,6 @@ class Smartphone extends Telephone {
         System.out.println("press enter to go back to go back");
         String a = sc.nextLine();
         mainMenu();
-
     }
 
     @Override
@@ -64,6 +53,5 @@ class Smartphone extends Telephone {
             Info();
         else
             startUp();
-
     }
 }
